@@ -30,13 +30,18 @@ public:
     // Judge whether the chessboard is full
     bool isFull();
 
+    // Judge whether the postion on the chessboard is empty
+    bool isEmpty(const int post);
+
     // Judge if the computer can win after placing
     // chess piece at the postion
-    bool compWinImmediately(int pos);
+    // TODO bugs exist in this function
+    bool compWinImmediately(const int pos);
 
     // Judge if the human can win after placing
     // chess piece at the postion
-    bool humanWinImmediately(int pos);
+    // TODO bugs exist in this function
+    bool humanWinImmediately(const int pos);
 
     // Judge if the computer wins the game
     bool compWin();
@@ -47,7 +52,7 @@ public:
 private:
 
     // Judge if the chess piece type in the board can win the game
-    bool hasWon(char c);
+    bool hasWon(const char c);
 
     // The board one-dimension used for calculation
     char boardInOneDimens[GRID_NUMBER];

@@ -8,7 +8,22 @@ void AI::findCompMove(ChessBoard &board, int &bestMove,
     } else if (board.compWinImmediately(bestMove)) {
         value = CompWin;
     } else {
-        // TODO Place chess pieces at valid postion to get bestmove
+        value = alpha;
+        for (int i = 0; i < 9 && value < beta; ++i) {
+            if (board.isEmpty(i)) {
+                board.placeComp(i);
+
+                int tmp = 0, response = 0;
+                findHumanMove(board, tmp, response, value, beta);
+
+                board.unPlace(i);
+
+                if (response > value) {
+                    value = response;
+                    bestMove = i;
+                }
+            }
+        }
     }
 }
 
@@ -19,6 +34,21 @@ void AI::findHumanMove(ChessBoard &board, int &bestMove,
     } else if (board.humanWinImmediately(bestMove)) {
         value = CompLoss;
     } else {
-        // TODO Place chess pieces at valid postion to get bestmove
+        value = beta;
+        for (int i = 0; i < 9 && value > alpha; ++i) {
+            if (board.isEmpty(i)) {
+                board.placeHuman(i);
+
+                int tmp = 0, response = 0;
+                findCompMove(board, tmp, response, alpha, value);
+
+                board.unPlace(i);
+
+                if (response < value) {
+                    value = response;
+                    bestMove = i;
+                }
+            }
+        }
     }
 }

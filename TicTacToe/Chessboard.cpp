@@ -48,8 +48,11 @@ bool ChessBoard::isFull() {
     return true;
 }
 
+bool ChessBoard::isEmpty(const int pos) {
+    return boardInOneDimens[pos] == BLANK_CHAR;
+}
 
-bool ChessBoard::compWinImmediately(int pos) {
+bool ChessBoard::compWinImmediately(const int pos) {
     if (boardInOneDimens[pos] != BLANK_CHAR) return false;
     boardInOneDimens[pos] = COMP_CHAR;
     bool win = compWin();
@@ -57,14 +60,13 @@ bool ChessBoard::compWinImmediately(int pos) {
     return win;
 }
 
-bool ChessBoard::humanWinImmediately(int pos) {
+bool ChessBoard::humanWinImmediately(const int pos) {
     if (boardInOneDimens[pos] != BLANK_CHAR) return false;
     boardInOneDimens[pos] = HUMAN_CHAR;
     bool win = humanWin();
     boardInOneDimens[pos] = BLANK_CHAR;
     return win;
 }
-
 
 bool ChessBoard::compWin() {
     return hasWon(COMP_CHAR);
@@ -74,7 +76,7 @@ bool ChessBoard::humanWin() {
     return hasWon(HUMAN_CHAR);
 }
 
-bool ChessBoard::hasWon(char c) {
+bool ChessBoard::hasWon(const char c) {
     // Check rows
     for (int i = 0; i <= 6; i += 3)
         if (boardInOneDimens[i] == c && boardInOneDimens[i] == boardInOneDimens[i + 1]

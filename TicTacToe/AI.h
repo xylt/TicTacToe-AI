@@ -11,7 +11,7 @@ public:
     // Find computer's best movement
     // using minimax algorithm and alpha-beta pruning
     static void findCompMove(ChessBoard &board, int &bestMove,
-        int &value, int alpha, int beta);
+        int &value, int alpha = CompLoss, int beta = CompWin);
 
 private:
     // Find human's best movement
