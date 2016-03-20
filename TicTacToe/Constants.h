@@ -1,7 +1,7 @@
 #pragma once
 
 /*
-Store macros in the application
+Store modificable constants in the application
 */
 
 #define HUMAN_CHAR 'O'

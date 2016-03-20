@@ -24,10 +24,31 @@ public:
     // pos is from 0 to 8
     void unPlace(const int pos);
 
-    // Prin the board to console
+    // Print the board to console
     void print();
 
+    // Judge whether the chessboard is full
+    bool isFull();
+
+    // Judge if the computer can win after placing
+    // chess piece at the postion
+    bool compWinImmediately(int pos);
+
+    // Judge if the human can win after placing
+    // chess piece at the postion
+    bool humanWinImmediately(int pos);
+
+    // Judge if the computer wins the game
+    bool compWin();
+
+    // Judge if the huamn wins the game
+    bool humanWin();
+
 private:
+
+    // Judge if the chess piece type in the board can win the game
+    bool hasWon(char c);
+
     // The board one-dimension used for calculation
     char boardInOneDimens[GRID_NUMBER];
 

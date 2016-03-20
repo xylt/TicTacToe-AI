@@ -1,5 +1,5 @@
 #include "Chessboard.h"
-#include "Macros.h"
+#include "Constants.h"
 #include <iostream>
 using namespace std;
 
@@ -35,6 +35,60 @@ void ChessBoard::print() {
         }
     }
     for (int i = 0; i < CHESSBOARD_ROW; ++i) {
-        cout << board[i] << endl;
+        printf("%s\n", board[i]);
     }
+}
+
+bool ChessBoard::isFull() {
+    for (int i = 0; i < GRID_NUMBER; ++i) {
+        if (boardInOneDimens[i] == BLANK_CHAR) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+bool ChessBoard::compWinImmediately(int pos) {
+    if (boardInOneDimens[pos] != BLANK_CHAR) return false;
+    boardInOneDimens[pos] = COMP_CHAR;
+    bool win = compWin();
+    boardInOneDimens[pos] = BLANK_CHAR;
+    return win;
+}
+
+bool ChessBoard::humanWinImmediately(int pos) {
+    if (boardInOneDimens[pos] != BLANK_CHAR) return false;
+    boardInOneDimens[pos] = HUMAN_CHAR;
+    bool win = humanWin();
+    boardInOneDimens[pos] = BLANK_CHAR;
+    return win;
+}
+
+
+bool ChessBoard::compWin() {
+    return hasWon(COMP_CHAR);
+}
+
+bool ChessBoard::humanWin() {
+    return hasWon(HUMAN_CHAR);
+}
+
+bool ChessBoard::hasWon(char c) {
+    // Check rows
+    for (int i = 0; i <= 6; i += 3)
+        return boardInOneDimens[i] == c && boardInOneDimens[i] == boardInOneDimens[i + 1]
+        && boardInOneDimens[i] == boardInOneDimens[i + 2];
+
+    // Check columns
+    for (int i = 0; i <= 3; ++i)
+        return boardInOneDimens[i] == c && boardInOneDimens[i] == boardInOneDimens[i + 3]
+        && boardInOneDimens[i] == boardInOneDimens[i + 6];
+
+    // Check diagonals
+    return boardInOneDimens[4] == c && boardInOneDimens[0] == boardInOneDimens[4]
+        && boardInOneDimens[0] == boardInOneDimens[8];
+
+    return boardInOneDimens[4] == c && boardInOneDimens[2] == boardInOneDimens[4]
+        && boardInOneDimens[2] == boardInOneDimens[6];
 }
