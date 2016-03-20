@@ -77,18 +77,20 @@ bool ChessBoard::humanWin() {
 bool ChessBoard::hasWon(char c) {
     // Check rows
     for (int i = 0; i <= 6; i += 3)
-        return boardInOneDimens[i] == c && boardInOneDimens[i] == boardInOneDimens[i + 1]
-        && boardInOneDimens[i] == boardInOneDimens[i + 2];
+        if (boardInOneDimens[i] == c && boardInOneDimens[i] == boardInOneDimens[i + 1]
+            && boardInOneDimens[i] == boardInOneDimens[i + 2]) return true;
 
     // Check columns
     for (int i = 0; i <= 3; ++i)
-        return boardInOneDimens[i] == c && boardInOneDimens[i] == boardInOneDimens[i + 3]
-        && boardInOneDimens[i] == boardInOneDimens[i + 6];
+        if (boardInOneDimens[i] == c && boardInOneDimens[i] == boardInOneDimens[i + 3]
+            && boardInOneDimens[i] == boardInOneDimens[i + 6]) return true;
 
     // Check diagonals
-    return boardInOneDimens[4] == c && boardInOneDimens[0] == boardInOneDimens[4]
-        && boardInOneDimens[0] == boardInOneDimens[8];
+    if (boardInOneDimens[4] == c && boardInOneDimens[0] == boardInOneDimens[4]
+        && boardInOneDimens[0] == boardInOneDimens[8]) return true;
 
-    return boardInOneDimens[4] == c && boardInOneDimens[2] == boardInOneDimens[4]
-        && boardInOneDimens[2] == boardInOneDimens[6];
+    if (boardInOneDimens[4] == c && boardInOneDimens[2] == boardInOneDimens[4]
+        && boardInOneDimens[2] == boardInOneDimens[6]) return true;
+
+    return false;
 }
