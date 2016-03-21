@@ -13,7 +13,7 @@ void AI::findCompMove(ChessBoard &board, int &bestMove,
             if (board.isEmpty(i)) {
                 board.placeComp(i);
 
-                int tmp = 0, response = 0;
+                int tmp = -1, response = -1;  // Tmp is useless
                 findHumanMove(board, tmp, response, value, beta);
 
                 board.unPlace(i);
@@ -39,7 +39,7 @@ void AI::findHumanMove(ChessBoard &board, int &bestMove,
             if (board.isEmpty(i)) {
                 board.placeHuman(i);
 
-                int tmp = 0, response = 0;
+                int tmp = -1, response = -1;  // Tmp is useless
                 findCompMove(board, tmp, response, alpha, value);
 
                 board.unPlace(i);
