@@ -104,7 +104,7 @@ bool Game::handleGameOver() {
             if (whoWin == COMP) {
                 cout << "You lose!" << endl;
             } else if (whoWin == HUMAN) {
-                cout << "Congratualtions! You defeat the computer." << endl;
+                cout << "Congratulations! You defeat the computer." << endl;
             }
         }
         return true;
