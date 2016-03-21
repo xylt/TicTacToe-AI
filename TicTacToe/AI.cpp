@@ -5,7 +5,7 @@ void AI::findCompMove(ChessBoard &board, int &bestMove,
     int &value, int alpha, int beta) {
     if (board.isFull()) {
         value = Draw;
-    } else if (board.compWinImmediately(bestMove)) {
+    } else if (board.compCanWinImmediately(bestMove)) {
         value = CompWin;
     } else {
         value = alpha;
@@ -31,7 +31,7 @@ void AI::findHumanMove(ChessBoard &board, int &bestMove,
     int &value, int alpha, int beta) {
     if (board.isFull()) {
         value = Draw;
-    } else if (board.humanWinImmediately(bestMove)) {
+    } else if (board.humanCanWinImmediately(bestMove)) {
         value = CompLoss;
     } else {
         value = beta;

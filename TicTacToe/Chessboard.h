@@ -34,14 +34,14 @@ public:
     bool isEmpty(const int post);
 
     // Judge if the computer can win after placing
-    // chess piece at the postion
-    // TODO bugs exist in this function
-    bool compWinImmediately(const int pos);
+    // chess piece at a position, if so, store the position
+    // in @param bestMove
+    bool compCanWinImmediately(int &bestMove);
 
     // Judge if the human can win after placing
-    // chess piece at the postion
-    // TODO bugs exist in this function
-    bool humanWinImmediately(const int pos);
+    // chess piece at a position, if so, store the position
+    // in @param bestMove
+    bool humanCanWinImmediately(int &bestMove);
 
     // Judge if the computer wins the game
     bool compWin();

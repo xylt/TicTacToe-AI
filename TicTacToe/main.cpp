@@ -6,21 +6,17 @@ using namespace std;
 
 int main() {
     ChessBoard b;
-    /*for (int i = 0; i < GRID_NUMBER; ++i) {
-        b.placeComp(i);
-    }*/
-    b.placeHuman(0);
-    //b.placeComp(1);
     b.placeHuman(4);
-    b.placeComp(2);
-    b.placeComp(5);
-
-    cout << b.compWinImmediately(1) << endl;
-
-    int bestMove = 4, value;
-    AI::findCompMove(b, bestMove, value);
-
+    //b.placeHuman(4);
+    //b.placeComp(1);
     b.print();
+
+    //int bestMove = -1;
+    //b.humanCanWinImmediately(bestMove);
+    //cout << bestMove << endl;
+
+    int bestMove = -1, value = 0;
+    AI::findCompMove(b, bestMove, value);
     cout << bestMove << endl;
     return 0;
 }

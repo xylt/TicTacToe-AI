@@ -52,20 +52,34 @@ bool ChessBoard::isEmpty(const int pos) {
     return boardInOneDimens[pos] == BLANK_CHAR;
 }
 
-bool ChessBoard::compWinImmediately(const int pos) {
-    if (boardInOneDimens[pos] != BLANK_CHAR) return false;
-    boardInOneDimens[pos] = COMP_CHAR;
-    bool win = compWin();
-    boardInOneDimens[pos] = BLANK_CHAR;
-    return win;
+bool ChessBoard::compCanWinImmediately(int &bestMove) {
+    for (int i = 0; i < GRID_NUMBER; ++i) {
+        if (isEmpty(i)) {
+            boardInOneDimens[i] = COMP_CHAR;
+            bool canWin = compWin();
+            boardInOneDimens[i] = BLANK_CHAR;
+            if (canWin) {
+                bestMove = i;
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
-bool ChessBoard::humanWinImmediately(const int pos) {
-    if (boardInOneDimens[pos] != BLANK_CHAR) return false;
-    boardInOneDimens[pos] = HUMAN_CHAR;
-    bool win = humanWin();
-    boardInOneDimens[pos] = BLANK_CHAR;
-    return win;
+bool ChessBoard::humanCanWinImmediately(int &bestMove) {
+    for (int i = 0; i < GRID_NUMBER; ++i) {
+        if (isEmpty(i)) {
+            boardInOneDimens[i] = HUMAN_CHAR;
+            bool canWin = humanWin();
+            boardInOneDimens[i] = BLANK_CHAR;
+            if (canWin) {
+                bestMove = i;
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 bool ChessBoard::compWin() {
