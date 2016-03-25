@@ -1,6 +1,12 @@
 #include "AI.h"
 #include "Chessboard.h"
 
+int AI::getBestMove(ChessBoard &board) {
+    int bestMove = 0, value = 0;
+    findCompMove(board, bestMove, value, CompLoss, CompWin);
+    return bestMove;
+}
+
 void AI::findCompMove(ChessBoard &board, int &bestMove,
     int &value, int alpha, int beta) {
     if (board.isFull()) {

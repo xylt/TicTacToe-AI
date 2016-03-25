@@ -71,8 +71,7 @@ void Game::humanPlace() {
 }
 
 void Game::compPlace() {
-    int bestMove = 0, value = 0;
-    AI::findCompMove(board, bestMove, value);
+    int bestMove = AI::getBestMove(board);
     board.placeComp(bestMove);
     cout << "The computer's choice:" << endl;
 }

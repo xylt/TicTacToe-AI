@@ -8,12 +8,14 @@ class ChessBoard;
 
 class AI {
 public:
+    // Get computer's best movement
+    static int getBestMove(ChessBoard &board);
+private:
     // Find computer's best movement
     // using minimax algorithm and alpha-beta pruning
     static void findCompMove(ChessBoard &board, int &bestMove,
-        int &value, int alpha = CompLoss, int beta = CompWin);
+        int &value, int alpha, int beta);
 
-private:
     // Find human's best movement
     // using minimax algorithm and alpha-beta pruning
     static void findHumanMove(ChessBoard &board, int &bestMove,
