@@ -15,14 +15,14 @@ private:
 
     // Choose the one who places the first piece
     // Return 0 means human-first, 1 means computer-first.
-    Role chooseFirstPlace();
+    Role chooseFirstPlace() const;
 
     // Print chess board
     void printBoard();
 
     // Ask user where to place a chess piece
     // Return the postion to place the chess piece
-    int getPlacePosition();
+    int getPlacePosition() const;
 
     // Ask human to place the chess piece
     void humanPlace();
@@ -33,18 +33,18 @@ private:
     // Judge if game is over
     // Return true if the game is over, and if @param draw
     // equals true, the @param win is useless.
-    bool gameIsOver(bool &draw, Role &win);
+    bool gameIsOver(bool &draw, Role &win) const;
 
     // If game is over, handle it
     // Return true means game is over.
-    bool handleGameOver();
+    bool handleGameOver() const;
 
     // Judge if the input in getPlacePosition() is legal.
     // The input must be a string of length 2.
     // Input[0] means the row position
     // Input[1] means the column position
-    bool isLegalPlacePosition(const std::string &input);
+    bool isLegalPlacePosition(const std::string &input) const;
 
     // Convert the user's input to position in one-dimension array;
-    int convertInputToPosition(const std::string &input);
+    static int convertInputToPosition(const std::string &input);
 };

@@ -39,7 +39,7 @@ void ChessBoard::print() {
     }
 }
 
-bool ChessBoard::isFull() {
+bool ChessBoard::isFull() const {
     for (int i = 0; i < GRID_NUMBER; ++i) {
         if (boardInOneDimens[i] == BLANK_CHAR) {
             return false;
@@ -48,7 +48,7 @@ bool ChessBoard::isFull() {
     return true;
 }
 
-bool ChessBoard::isEmpty(const int pos) {
+bool ChessBoard::isEmpty(const int pos) const {
     return boardInOneDimens[pos] == BLANK_CHAR;
 }
 
@@ -82,15 +82,15 @@ bool ChessBoard::humanCanWinImmediately(int &bestMove) {
     return false;
 }
 
-bool ChessBoard::compWin() {
+bool ChessBoard::compWin() const {
     return hasWon(COMP_CHAR);
 }
 
-bool ChessBoard::humanWin() {
+bool ChessBoard::humanWin() const {
     return hasWon(HUMAN_CHAR);
 }
 
-bool ChessBoard::hasWon(const char c) {
+bool ChessBoard::hasWon(const char c) const {
     // Check rows
     for (int i = 0; i <= 6; i += 3)
         if (boardInOneDimens[i] == c && boardInOneDimens[i] == boardInOneDimens[i + 1]

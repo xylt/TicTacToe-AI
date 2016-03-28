@@ -18,7 +18,7 @@ void Game::start() {
     }
 }
 
-Game::Role Game::chooseFirstPlace() {
+Game::Role Game::chooseFirstPlace() const {
     int choice;
     while (1) {
         cout << "Who will place the first piece?" << endl;
@@ -37,7 +37,7 @@ void Game::printBoard() {
     board.print();
 }
 
-int Game::getPlacePosition() {
+int Game::getPlacePosition() const {
     string input;
     while (1) {
         cout << "It's your turn. Where to place the chess piece?" << endl;
@@ -54,7 +54,7 @@ int Game::getPlacePosition() {
     return convertInputToPosition(input);
 }
 
-bool Game::isLegalPlacePosition(const string &input) {
+bool Game::isLegalPlacePosition(const string &input) const {
     return input.size() == 2 && input[0] >= '1' && input[0] <= '3'
         && input[1] >= '1' && input[1] <= '3'
         && board.isEmpty(convertInputToPosition(input));
@@ -76,7 +76,7 @@ void Game::compPlace() {
     cout << "The computer's choice:" << endl;
 }
 
-bool Game::gameIsOver(bool &draw, Role &win) {
+bool Game::gameIsOver(bool &draw, Role &win) const {
     if (board.compWin()) {
         win = COMP;
         draw = false;
@@ -93,7 +93,7 @@ bool Game::gameIsOver(bool &draw, Role &win) {
     }
 }
 
-bool Game::handleGameOver() {
+bool Game::handleGameOver() const {
     bool draw = false;
     Role whoWin = HUMAN;
     if (gameIsOver(draw, whoWin)) {
