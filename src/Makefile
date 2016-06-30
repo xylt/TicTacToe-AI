@@ -21,3 +21,6 @@ Chessboard.o: Chessboard.cpp
 
 clean:
 	rm TicTacToe ${OBJS}
+
+run:
+	./TicTacToe
