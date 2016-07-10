@@ -6,11 +6,11 @@ Written in C/C++ and has a computer AI using [minimax algorithm](https://en.wiki
 
 ![](img/preview.png)
 
-## Compiler and Run
+## Compile and Run
 
 Windows:
 
-    Using VS 2015 or g++ compiler.
+    Compile and run with Visual Studio or g++.
     
 Linux:
 
