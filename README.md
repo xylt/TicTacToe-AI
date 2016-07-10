@@ -14,6 +14,9 @@ Windows:
     
 Linux:
 
-    $ make        // Compile
-    $ make run    // Run
-    $ make clean  // Clean objects file
+```bash
+$ cd src
+$ make
+$ make run
+$ make clean
+```
