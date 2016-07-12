@@ -1,8 +1,8 @@
-# TicTacToe-Console
+# TicTacToe-AI
 
-A classic TicTacToe game in console window.
+A tic-tac-toe game AI written in c/c++.
 
-Written in C/C++ and has a computer AI using [minimax algorithm](https://en.wikipedia.org/wiki/Minimax) with [alpha-beta pruning](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning).
+## Demos
 
 ![](img/preview.png)
 
@@ -20,3 +20,8 @@ $ make
 $ make run
 $ make clean
 ```
+
+## References
+
+* [minimax algorithm](https://en.wikipedia.org/wiki/Minimax)
+* [alpha-beta pruning](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning)
