@@ -8,12 +8,6 @@ A tic-tac-toe game AI written in c/c++.
 
 ## Compile and Run
 
-Windows:
-
-    Compile and run with Visual Studio or g++.
-    
-Linux:
-
 ```bash
 $ cd src
 $ make
