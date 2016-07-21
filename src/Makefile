@@ -1,26 +1,17 @@
-# Objects
 OBJS = main.o Game.o Chessboard.o AI.o
 
-# Compiler
 CC = g++ -std=c++11
 
-TicTacToe: $(OBJS)
-	$(CC) -o TicTacToe $(OBJS)
+APP_NAME = TicTacToe
 
-main.o: main.cpp
-	$(CC) -c main.cpp
+$(APP_NAME): $(OBJS)
+	$(CC) -o $(APP_NAME) $(OBJS)
 
-Game.o: Game.cpp
-	$(CC) -c Game.cpp
-
-AI.o: AI.cpp
-	$(CC) -c AI.cpp
-
-Chessboard.o: Chessboard.cpp
-	$(CC) -c Chessboard.cpp
+$(OBJS): %.o: %.cpp
+	$(CC) -c $< -o $@
 
 clean:
-	rm TicTacToe ${OBJS}
+	rm $(APP_NAME) ${OBJS}
 
 run:
-	./TicTacToe
+	@./$(APP_NAME)
