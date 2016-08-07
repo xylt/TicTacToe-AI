@@ -1,6 +1,6 @@
 # TicTacToe-AI
 
-A tic-tac-toe game AI written in c/c++.
+A tic-tac-toe game AI written in c/c++. ([中文博客](http://blog.csdn.net/qq_22885773/article/details/50967021))
 
 ## Demos
 
